@@ -1,0 +1,29 @@
+version: "3.7"
+
+services:
+  server:
+    image: vasmik/todo-server
+    ports:
+      - "8080:8080"
+    environment:
+      DB_HOST: mysql
+      DB_USER: root
+      DB_PASSWORD: todopwd
+    networks:
+      - todo_app
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: todopwd
+    volumes:
+      - "./db-init.sql:/docker-entrypoint-initdb.d/db-init.sql"
+    networks:
+      - todo_app
+
+networks:
+  todo_app:
