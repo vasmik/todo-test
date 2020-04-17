@@ -21,5 +21,5 @@ To start working:
     ```
 3. API is up and running on http://localhost:8080/api
 4. See the API specification on https://app.swaggerhub.com/apis/vasmik/todo-public_api/1.0.0
-
+5. Use the following auth credentials: `user1` / `P@ssw0rd1`
 
